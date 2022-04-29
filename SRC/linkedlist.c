@@ -6,11 +6,11 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/13 15:53:56 by xander        #+#    #+#                 */
-/*   Updated: 2022/01/31 18:29:57 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/29 12:34:50 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	ft_lstlen(t_node *head)
 {

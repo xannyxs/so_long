@@ -6,11 +6,14 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 20:30:14 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/02/01 17:39:02 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2022/04/29 13:02:16 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
+#include "libft.h"
+
+#include <unistd.h>
 
 /*
     free_pointer: to free the pointer (duh)
@@ -21,22 +24,9 @@
 
 int	error_message(void)
 {
-	write(2, "Error\n", 6);
-	write(2, "An error has occurred\n", 22);
+	write(STDERR_FILENO, "Error\n", 7);
+	write(STDERR_FILENO, "An error has occurred\n", 23);
 	return (-1);
-}
-
-void	free_pointer(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != NULL)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
 }
 
 int	file_utils(char *argv[], t_node **map, t_vars *vars)
@@ -84,9 +74,9 @@ int	check_valid_file(char *argv[])
 	i--;
 	if (ft_strcmp(str[i], "ber") == 0)
 	{
-		free_pointer(str);
+		ft_free_array(str);
 		return (0);
 	}
-	free_pointer(str);
+	ft_free_array(str);
 	return (-1);
 }

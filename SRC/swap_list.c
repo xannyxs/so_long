@@ -6,11 +6,11 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/25 18:23:08 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/01/28 15:15:38 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2022/04/29 12:34:40 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	swap_list_left(t_vars *vars, t_node *new_list)
 {

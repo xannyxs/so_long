@@ -6,11 +6,11 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/13 12:48:58 by xander        #+#    #+#                 */
-/*   Updated: 2022/02/01 12:03:25 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2022/04/29 13:03:40 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 #define PLAYER "IMG/mouse.xpm"
 #define PLAYER_REVERSE "IMG/mouse_reverse.xpm"

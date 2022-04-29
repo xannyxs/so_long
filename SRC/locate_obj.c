@@ -6,11 +6,11 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:41:03 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/02/01 12:03:25 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2022/04/29 12:34:50 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 #define WALL "IMG/wall.xpm"
 #define WALL_INT 1

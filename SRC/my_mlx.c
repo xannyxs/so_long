@@ -6,11 +6,11 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 14:51:55 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/01/28 14:39:10 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2022/04/29 12:34:50 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 /*
 	MY_MLX lib, because MLX cannot make working code.

@@ -6,11 +6,11 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/16 15:28:38 by xander        #+#    #+#                 */
-/*   Updated: 2022/01/31 18:24:32 by xander        ########   odam.nl         */
+/*   Updated: 2022/04/29 13:05:31 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	check_player(t_node *map)
 {

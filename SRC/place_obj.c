@@ -6,11 +6,11 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/16 17:03:16 by xander        #+#    #+#                 */
-/*   Updated: 2022/01/28 14:30:50 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2022/04/29 12:34:50 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 #define TRANSPARENT (unsigned int) -16777216
 
 void	draw_sprite(t_img *img, t_img *sprite, int x, int y)

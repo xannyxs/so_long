@@ -6,11 +6,11 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 23:21:59 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/02/01 11:45:54 by xvoorvaa      ########   odam.nl         */
+/*   Updated: 2022/04/29 12:34:50 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	print_movement(t_vars *vars)
 {
