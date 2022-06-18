@@ -6,35 +6,37 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/10 16:09:01 by xander        #+#    #+#                 */
-/*   Updated: 2022/01/31 18:41:06 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/18 19:15:39 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# include "mlx.h"
+# include "MLX42/MLX42.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdbool.h>
 
-typedef struct s_img {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_img;
+# define SUCCES 0
+# define ERROR 1
 
-typedef struct s_node {
-	int				number;
+typedef struct	s_node
+{
+	char			*data;
 	struct s_node	*next;
-}				t_node;
+}	t_node;
 
-typedef struct s_vars {
-	int			height;
-	int			width;
+typedef struct	s_map
+{
+	unsigned int	width;
+	unsigned int	height;
+	char			**world_map;
+}	t_map;
+
+typedef struct	s_vars
+{
 	int			img_height;
 	int			img_width;
 	int			collectables;
@@ -43,57 +45,47 @@ typedef struct s_vars {
 	int			ping;
 	int			moves;
 	int			p_check;
-	void		*mlx;
+	mlx_t		*mlx;
 	void		*win;
 	void		*img;
-	t_node		*map;
-}				t_vars;
-
-enum e_KEYS{
-	ESC = 53,
-	ARROW_LEFT = 123,
-	ARROW_RIGHT = 124,
-	ARROW_DOWN = 125,
-	ARROW_UP = 126,
-	KEY_W = 13,
-	KEY_A = 0,
-	KEY_S = 1,
-	KEY_D = 2
-};
+	t_map		map_data;
+}	t_vars;
 
 /*
-	SO_LONG
+	CHECK_MAP
 */
 
-int				check_exit(t_node *map);
+bool			is_ber_file_valid(char *ber_file, t_vars *vars);
 
-int				check_player(t_node *map);
+int				check_map(t_map *map_data);
 
-int				check_collectables(t_node *map);
+int				check_exit(char *world_map[]);
 
-int				check_wall(t_vars *vars, t_node *map);
+int				check_player(char *world_map[]);
 
-int				check_unknown(t_node *map);
+int				check_collectables(char *world_map[]);
 
-int				main(int argc, char *argv[]);
+int				check_wall(char *world_map[]);
+
+int				check_unknown(char *world_map[]);
 
 /*
 	PLACE OBJ
 */
 
-void			draw_sprite(t_img *img, t_img *sprite, int x, int y);
+//void			draw_sprite(t_img *img, t_img *sprite, int x, int y);
 
-void			place_all_objects(t_vars vars, t_node *map);
+//void			place_all_objects(t_vars vars, t_node *map);
 
-void			place_player(t_vars *vars, t_img *img, t_node *map);
+//void			place_player(t_vars *vars, t_img *img, t_node *map);
 
-void			place_cherry(t_vars *vars, t_img *img, t_node *map);
+//void			place_cherry(t_vars *vars, t_img *img, t_node *map);
 
-void			place_exit(t_vars *vars, t_img *img, t_node *map);
+//void			place_exit(t_vars *vars, t_img *img, t_node *map);
 
-void			place_wall(t_vars *vars, t_img *img, t_node *map);
+//void			place_wall(t_vars *vars, t_img *img, t_node *map);
 
-void			place_background(t_vars *vars, t_img *img, t_node *map);
+//void			place_background(t_vars *vars, t_img *img, t_node *map);
 
 /*
 	MOVEMENT
@@ -120,61 +112,44 @@ int				swap_list_down(t_vars *vars, t_node *new_list, \
 	UTILS
 */
 
-void			free_pointer(char **str);
-
 int				check_valid_file(char *argv[]);
 
-int				read_file(char *argv[], t_node **map, t_vars *vars);
+int				read_file(char *cub_file, t_vars *vars);
 
 int				get_next_line(int fd, char **line);
-
-int				file_utils(char *argv[], t_node **map, t_vars *vars);
 
 int				get_line(int fd, char *line, t_node **map, t_vars *vars);
 
 int				check_valid_file(char *argv[]);
 
-int				check_map(t_vars *vars, t_node *map);
-
-int				error_message(void);
-
-void			animation_player(t_vars *vars, t_img *sprite);
+//void			animation_player(t_vars *vars, t_img *sprite);
 
 /*
 	LINKED LIST
 */
 
-int				free_list(t_node **head);
+void			ft_free_list(t_node **head);
 
-int				new_node(t_node **head, int value);
+void			new_node(t_node **head, char *data);
 
 int				insert_to_list(t_vars *vars, t_node **map, char *line);
 
 int				ft_lstlen(t_node *head);
 
 /*
-	LIBFT
-*/
-void			ft_bzero(void *str, size_t n);
-
-char			**ft_split(char const *s, char c);
-
-size_t			ft_strlen(char const *str);
-
-char			*ft_substr(char const *str, unsigned int start, size_t len);
-
-void			*ft_calloc(size_t nitems, size_t n);
-
-int				ft_strcmp(const char *str1, const char *str2);
-
-void			ft_putnbr_fd(int n, int fd);
-
-/*
 	MY MLX
 */
 
-void			my_mlx_pixel_put(t_img *img, int x, int y, int colour);
+//void			my_mlx_pixel_put(t_img *img, int x, int y, int colour);
 
-unsigned int	my_mlx_colour_put(t_img *sprite, int x, int y);
+//unsigned int	my_mlx_colour_put(t_img *sprite, int x, int y);
+
+/*
+	WRAPPED
+*/
+
+void			*ft_malloc(size_t size);
+
+int				ft_open(char *cub_file);
 
 #endif

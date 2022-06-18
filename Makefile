@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2021/09/15 18:01:23 by xvoorvaa      #+#    #+#                  #
-#    Updated: 2022/06/18 17:51:12 by xander        ########   odam.nl          #
+#    Created: 2022/02/01 14:31:21 by xvoorvaa      #+#    #+#                  #
+#    Updated: 2022/06/18 17:58:58 by xander        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,20 +23,9 @@ LIBFT_DIR		=	./libft
 LIBFT_H			=	$(LIBFT_DIR)/INC
 LIBFT_A			=	$(LIBFT_DIR)/libft.a
 
-SOURCES			=	SRC/so_long.c \
-					SRC/place_obj.c \
-					SRC/check_map.c \
-					SRC/map_utils.c \
-					SRC/linkedlist.c \
-					SRC/utils.c \
-					SRC/locate_obj.c \
-					SRC/movement.c \
-					SRC/swap_list.c \
-					SRC/get_next_line.c \
-					SRC/error.c \
-					SRC/wrapped/open_fd.c
+SOURCES			=	$(shell find $(SRC_DIR) -type f -name "*.c")
 
-HEADERS		:= $(MLX_H) INC/so_long.h $(LIBFT_H)
+HEADERS		:= $(MLX_H) INC/so_long.h INC/error.h $(LIBFT_H)
 OBJS		:= $(SOURCES:.c=.o)
 OBJECTS		:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(OBJS))
 
@@ -60,12 +49,16 @@ GLFW_LIB := $(shell brew --prefix glfw)
 
 all:	$(NAME)
 
-mlx:
-	$(MAKE) -C minilibx
-	cp minilibx/libmlx.dylib .
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I$(INC_DIR) -I$(MLX_H) -I$(LIBFT_H)
 
-$(NAME): $(OBJS) mlx
-	@clear
+$(OBJ_DIR):
+	@mkdir $@
+
+$(NAME): $(MLX_A) $(LIBFT_A) $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) $(MLX_A) -lglfw \
+		-L$(GLFW_LIB)/lib $(LIBFT_A)
 	@echo $(START)
 	@printf $(COMP_MESSAGE) $(SOURCES)
 	@echo $(MESSAGE)
