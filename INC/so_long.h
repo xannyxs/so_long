@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/10 16:09:01 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/18 19:15:39 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/18 23:55:01 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,16 @@ typedef struct	s_map
 
 typedef struct	s_vars
 {
-	int			img_height;
-	int			img_width;
-	int			collectables;
-	int			enter_exit;
-	int			buffer;
-	int			ping;
-	int			moves;
-	int			p_check;
-	mlx_t		*mlx;
-	void		*win;
-	void		*img;
-	t_map		map_data;
+	int				player_x;
+	int				player_y;
+	int				collectables;
+	int				enter_exit;
+	int				ping;
+	int				moves;
+	int				p_check;
+	mlx_t			*mlx;
+	mlx_image_t		*screen;
+	t_map			map_data;
 }	t_vars;
 
 /*
@@ -73,40 +71,29 @@ int				check_unknown(char *world_map[]);
 	PLACE OBJ
 */
 
-//void			draw_sprite(t_img *img, t_img *sprite, int x, int y);
+void			place_objects(void *param);
 
-//void			place_all_objects(t_vars vars, t_node *map);
+void			place_player(t_vars *vars);
 
-//void			place_player(t_vars *vars, t_img *img, t_node *map);
+void			place_cherry(t_vars *vars);
 
-//void			place_cherry(t_vars *vars, t_img *img, t_node *map);
+void			place_exit(t_vars *vars);
 
-//void			place_exit(t_vars *vars, t_img *img, t_node *map);
+void			place_wall(t_vars *vars);
 
-//void			place_wall(t_vars *vars, t_img *img, t_node *map);
-
-//void			place_background(t_vars *vars, t_img *img, t_node *map);
+void			place_background(t_vars *vars);
 
 /*
 	MOVEMENT
 */
 
-int				to_left(t_vars *vars);
+void			to_left(t_vars *vars);
 
-int				to_right(t_vars *vars);
+void			to_right(t_vars *vars);
 
-int				to_up(t_vars *vars);
+void			to_up(t_vars *vars);
 
-int				to_down(t_vars *vars);
-
-int				swap_list_left(t_vars *vars, t_node *new_list);
-
-int				swap_list_right(t_vars *vars, t_node *new_list);
-
-int				swap_list_up(t_vars *vars, t_node *new_list, t_node *down_node);
-
-int				swap_list_down(t_vars *vars, t_node *new_list, \
-					t_node *down_node);
+void			to_down(t_vars *vars);
 
 /*
 	UTILS
@@ -122,6 +109,8 @@ int				get_line(int fd, char *line, t_node **map, t_vars *vars);
 
 int				check_valid_file(char *argv[]);
 
+void			find_player(t_vars *vars, char *world_map[]);
+
 //void			animation_player(t_vars *vars, t_img *sprite);
 
 /*
@@ -135,14 +124,6 @@ void			new_node(t_node **head, char *data);
 int				insert_to_list(t_vars *vars, t_node **map, char *line);
 
 int				ft_lstlen(t_node *head);
-
-/*
-	MY MLX
-*/
-
-//void			my_mlx_pixel_put(t_img *img, int x, int y, int colour);
-
-//unsigned int	my_mlx_colour_put(t_img *sprite, int x, int y);
 
 /*
 	WRAPPED

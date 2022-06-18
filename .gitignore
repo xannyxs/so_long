@@ -1,6 +1,5 @@
 OBJ/
 so_long
-*.ber
 .vscode/*.log
 
 # Prerequisites

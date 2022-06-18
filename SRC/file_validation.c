@@ -6,7 +6,7 @@
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/17 20:30:14 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/06/18 19:16:10 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/18 22:07:11 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static bool	is_ber_extension(char *argv)
 
 bool	is_ber_file_valid(char *ber_file, t_vars *vars)
 {
-	if (!is_ber_extension(ber_file))
+	if (is_ber_extension(ber_file) == false)
 		return (false);
 	if (read_file(ber_file, vars))
 		return (false);

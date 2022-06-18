@@ -1,0 +1,264 @@
+!XPM42
+50 50 212 2 c
+   #00000000
+.  #000000FF
+X  #010101FF
+o  #1B1B1BFF
+O  #1C1C1CFF
++  #424242FF
+@  #555555FF
+#  #565656FF
+$  #575757FF
+%  #E50101FF
+&  #E60202FF
+*  #E40404FF
+=  #E40504FF
+-  #E50505FF
+;  #E40604FF
+:  #E60604FF
+>  #E40606FF
+,  #E40706FF
+<  #E40707FF
+1  #E70706FF
+2  #E70707FF
+3  #E80606FF
+4  #E70909FF
+5  #E50F08FF
+6  #E40E09FF
+7  #E50F0EFF
+8  #EA0A09FF
+9  #EB0A0AFF
+0  #EB0B0AFF
+q  #EC0C0BFF
+w  #EA0D0CFF
+e  #EC0C0CFF
+r  #EC0D0CFF
+t  #ED0D0CFF
+y  #EE0E0DFF
+u  #EF0F0FFF
+i  #E51109FF
+p  #E5110FFF
+a  #EF100FFF
+s  #E4180DFF
+d  #E51110FF
+f  #E51111FF
+g  #E31716FF
+h  #EB1212FF
+j  #EF1010FF
+k  #E41911FF
+l  #E71C11FF
+z  #E41B14FF
+x  #E81E13FF
+c  #E11D1CFF
+v  #E11D1DFF
+b  #E31C1CFF
+n  #E11E1EFF
+m  #E51F1EFF
+M  #F01110FF
+N  #F11212FF
+B  #F11312FF
+V  #F11413FF
+C  #F31515FF
+Z  #F31615FF
+A  #F41515FF
+S  #F41717FF
+D  #F41817FF
+F  #F51817FF
+G  #F21919FF
+H  #F51818FF
+J  #F51A19FF
+K  #F61B1AFF
+L  #F71B1AFF
+P  #F71C1BFF
+I  #F81C1CFF
+U  #F81D1CFF
+Y  #F91D1CFF
+T  #F91D1DFF
+R  #F91E1DFF
+E  #F91F1EFF
+W  #F91F1FFF
+Q  #FA1F1EFF
+!  #E52214FF
+~  #E52414FF
+^  #E52616FF
+/  #E42717FF
+(  #E6201FFF
+)  #E52B1CFF
+_  #ED2C1EFF
+`  #ED2D1FFF
+'  #EE2C1EFF
+]  #F9201EFF
+[  #F9201FFF
+{  #F9211FFF
+}  #FA201FFF
+|  #FA211FFF
+ . #F9221FFF
+.. #F8231FFF
+X. #E5311BFF
+o. #E5311CFF
+O. #E5321CFF
++. #E4331EFF
+@. #E5331EFF
+#. #E7321EFF
+$. #E4341DFF
+%. #E8311EFF
+&. #E8311FFF
+*. #E12120FF
+=. #E72524FF
+-. #E72726FF
+;. #E62727FF
+:. #EF2020FF
+>. #E82626FF
+,. #EF2726FF
+<. #E52821FF
+1. #E52A23FF
+2. #E42D20FF
+3. #EB2E2EFF
+4. #F02121FF
+5. #F02524FF
+6. #FA2020FF
+7. #FA2120FF
+8. #FA2322FF
+9. #FA2323FF
+0. #FB2323FF
+q. #FA2424FF
+w. #FA2524FF
+e. #FA2525FF
+r. #F92727FF
+t. #F72D2DFF
+y. #F92D2CFF
+u. #F82E2DFF
+i. #F92F2FFF
+p. #E53923FF
+a. #E53A23FF
+s. #E53A24FF
+d. #E53C27FF
+f. #E63D27FF
+g. #E63E29FF
+h. #E53A2CFF
+j. #E73C2DFF
+k. #F8302FFF
+l. #E53131FF
+z. #EF3131FF
+x. #EC3434FF
+c. #E53E37FF
+v. #E63B3BFF
+b. #E63C3CFF
+n. #EA3E3DFF
+m. #F73333FF
+M. #F63736FF
+N. #F83332FF
+B. #F43938FF
+V. #F53939FF
+C. #F53A3AFF
+Z. #F63A3AFF
+A. #F73C3CFF
+S. #F83938FF
+D. #F83A39FF
+F. #E3402AFF
+G. #E5402AFF
+H. #E6412BFF
+J. #E64242FF
+K. #E74343FF
+L. #EB4140FF
+P. #E94747FF
+I. #EF4544FF
+U. #E64C4CFF
+Y. #E94F4EFF
+T. #F84140FF
+R. #F84241FF
+E. #F84342FF
+W. #F54948FF
+Q. #F64B4BFF
+!. #F44F4EFF
+~. #E65947FF
+^. #E85A47FF
+/. #E45252FF
+(. #E55454FF
+). #E95151FF
+_. #E55857FF
+`. #E65E5EFF
+'. #EB5959FF
+]. #EA5C5CFF
+[. #F55150FF
+{. #F55353FF
+}. #F65252FF
+|. #F45555FF
+ X #F65554FF
+.X #F65655FF
+XX #F45656FF
+oX #F95151FF
+OX #F85352FF
++X #E96554FF
+@X #EB6A6AFF
+#X #EA6C6CFF
+$X #F76262FF
+%X #F66464FF
+&X #F06968FF
+*X #F36A6AFF
+=X #F56868FF
+-X #E87978FF
+;X #EC7D7DFF
+:X #F37B7BFF
+>X #F67978FF
+,X #F37C7CFF
+<X #EC887CFF
+1X #EA8181FF
+2X #EA8484FF
+3X #EE8989FF
+4X #ED8D8DFF
+5X #F18383FF
+6X #FA8D8DFF
+7X #F39292FF
+8X #F99595FF
+9X #F99797FF
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+          ].              m.                                              g               &X        
+        (.Y.              w.                                              =               $X        
+        P.L.              w.                                              w               oXXX      
+      m C } 6.          u 6.6.                                          8 Q }           1 D } D.    
+      ( A } } A.6X  ;.G P } }                                           0 Q } i.R.  -X>.P } } S.    
+      m A } } } oX  u L 6.} }                                           0 } } } 6.  I.B } } } D.    
+      ).5.L } } } } } } } 6.E.                                          3.L Q } } } 6.Q } } k.%X    
+        U.u Q W } } } } 6.w.            O O $           @ O O             4 L Q 6.} } } } }         
+        /.8 Q Q } } } } } w.            . . +           + . .             = C 6.} } } } } 6.        
+        4Xb.G Q } } } } N.=X            @ @               @ @             '.,.P } } } } w.OX        
+            p Q } } } }                                                     K.j } } } } i.          
+              c a } 6.5X                *.z.&X          _.=.B.                ;X= Q 6.m.            
+              c u Q w.7X                = D XX          K.8 6.                3X* Q 6.Z.            
+              c u } 0.9X                = L }.          b.q }                 2X* I Q B.            
+              c u } 8.8X          ;.& & 7.7.Q Q } } } } } } } } } R.          1X= Q W B.            
+              c y | 7.}.          :.B B } } } } } } } } } } } } } y.          !.B Q 7.B.            
+                x.D | | Q.    @X8 Q Q } } } } } } } } } } } } } } } } >X    Q.} 6.7.                
+                  = } } } } } } 6.} } } } } } } } } } } } } } } } } } } } } } } } Q                 
+                  ~ 0 Z } } } } } } } } } } } } } } } } } } } } } } } } } } } } Q u                 
+              G.^.      Z } } } } } } } } } } } } } } } } } } } } } } } 6.6.}       c.2.            
+            G.f.<X      h } } } } } } } } } } } } } } } } } } } } } } } } 6.w.      #Xp g.          
+          1.+.            } ` &.&.} } } } } } } } } } } } } } } } P 3 x ` }             6 j.        
+        (.i X.            ` #.      XX} } } } } } } } } } } } } XX      l `             * ^         
+        /.i +.            #.f.      :Xt.t.t.t.t.t.t.t.t.t.t.t.t.,X      z +.            = ^         
+        `.k X.          +.p.                                              = /           = )         
+            f.          s s.                                              < ^           7           
+            G.          i p.                                              = ^           f           
+            ~.          1.p.                                              = h.          l.          
+                          p.                                              =                         
+                          s.                                              4                         
+                          +X                                              b.                        
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    

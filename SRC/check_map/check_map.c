@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/18 19:09:55 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/18 19:10:59 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/18 22:50:53 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static void	get_map_size(t_map *map_data)
 		x = 0;
 		while (map_data->world_map[y][x] != '\0')
 			x++;
-		if ((int)map_data->width < x - 1)
-			map_data->width = x - 1;
+		if ((int)map_data->width < x)
+			map_data->width = x;
 		y++;
 	}
-	map_data->height = y - 1;
+	map_data->height = y;
 }
 
 int	check_map(t_map *map_data)
