@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   place_cherry.c                                     :+:    :+:            */
+/*   my_mlx_put_texture.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/18 22:52:14 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/20 22:29:45 by xander        ########   odam.nl         */
+/*   Created: 2022/06/20 22:24:44 by xander        #+#    #+#                 */
+/*   Updated: 2022/06/20 22:28:59 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-#define CHERRY "IMG/XPM42/cherry.xpm42"
-
-void	place_cherry(t_vars *vars)
+void	my_mlx_put_texture(mlx_image_t *screen, mlx_texture_t *texture, int offset_x, int offset_y)
 {
-	unsigned int	x;
-	unsigned int	y;
+	int	x;
+	int	y;
 
-	x = 0;
 	y = 0;
-	while (vars->map_data.world_map[y])
+	while (y <= 50)
 	{
-		if (vars->map_data.world_map[y][x] == 'C')
-			my_mlx_put_texture(vars->screen, &vars->texture.cherry->texture, x * 50, y * 50);
-		x++;
-		if (x >= vars->map_data.width)
+		x = 0;
+		while (x <= 50)
 		{
-			y++;
-			x = 0;
+			if (my_mlx_color(texture, x, y) != 0)
+				my_mlx_put_pixel(screen, x + offset_x, y + offset_y, \
+					my_mlx_color(texture, x, y));
+			x++;
 		}
+		y++;
 	}
 }

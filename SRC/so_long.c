@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/13 14:54:29 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/18 23:55:12 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/20 23:05:11 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,71 @@
 
 #include <stdbool.h>
 
-#define SAND "IMG/XPM42/sand.xpm42"
+#define GRASS "IMG/XPM42/grass.xpm42"
+#define WALL "IMG/XPM42/wall.xpm42"
+#define CHERRY "IMG/XPM42/cherry.xpm42"
+#define EXIT "IMG/XPM42/exit.xpm42"
+#define PLAYER "IMG/XPM42/player.xpm42"
+
+static bool	does_collect_exist(char *world_map[])
+{
+	UINT x;
+	UINT y;
+
+	y = 0;
+	while (world_map[y])
+	{
+		x = 0;
+		while (world_map[y][x])
+		{
+			if (world_map[y][x] == 'C')
+				return (true);
+			x++;
+		}
+		y++;
+	}
+	return (false);
+}
 
 /*
-	Key_press will track actions of the user.
+	key_hook will track actions of the user.
 	Both WASD & ARROWS work to move the character.
 	ESC is to close the game.
 */
-void	key_press(void *param)
+void	key_hook(mlx_key_data_t keydata, void *param)
 {
 	t_vars *vars;
 
 	vars = param;
-	if (mlx_is_key_down(vars->mlx, MLX_KEY_ESCAPE))
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		mlx_close_window(vars->mlx);
-	if (mlx_is_key_down(vars->mlx, MLX_KEY_LEFT) || mlx_is_key_down(vars->mlx, MLX_KEY_A))
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
 		to_left(vars);
-	if (mlx_is_key_down(vars->mlx, MLX_KEY_RIGHT) || mlx_is_key_down(vars->mlx, MLX_KEY_D))
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
 		to_right(vars);
-	if (mlx_is_key_down(vars->mlx, MLX_KEY_UP) || mlx_is_key_down(vars->mlx, MLX_KEY_W))
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
 		to_up(vars);
-	if (mlx_is_key_down(vars->mlx, MLX_KEY_DOWN) || mlx_is_key_down(vars->mlx, MLX_KEY_S))
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
 		to_down(vars);
-	//if (check_collectables(vars->map) == -1)
-	//	vars->enter_exit = true;
+	if (does_collect_exist(vars->map_data.world_map) == false)
+		vars->enter_exit = true;
+}
+
+static void	open_xpm_files(t_textures *textures)
+{
+	textures->grass = mlx_load_xpm42(GRASS);
+	textures->player = mlx_load_xpm42(PLAYER);
+	textures->wall = mlx_load_xpm42(WALL);
+	textures->cherry = mlx_load_xpm42(CHERRY);
+	textures->exit = mlx_load_xpm42(EXIT);
 }
 
 static void	set_values(t_vars *vars)
 {
-	vars->collectables = 0;
 	vars->enter_exit = false;
-	vars->p_check = 0;
 	vars->moves = 0;
+	vars->last_tile = 0;
+	open_xpm_files(&vars->texture);
 	find_player(vars, vars->map_data.world_map);
 }
 
@@ -57,6 +90,7 @@ static void	init_sys(t_vars *vars)
 	vars->screen = mlx_new_image(vars->mlx, 1920, 1080);
 	if (!vars->screen)
 		fatal_perror("mlx");
+	mlx_image_to_window(vars->mlx, vars->screen, 0, 0);
 }
 
 int32_t	main(int argc, char *argv[])
@@ -75,7 +109,7 @@ int32_t	main(int argc, char *argv[])
 		fatal_perror("mlx");
 	init_sys(&vars);
 	place_objects(&vars);
-	mlx_loop_hook(vars.mlx, &key_press, &vars);
+	mlx_key_hook(vars.mlx, &key_hook, &vars);
 	mlx_loop(vars.mlx);
 	mlx_terminate(vars.mlx);
 	ft_free_array(vars.map_data.world_map);

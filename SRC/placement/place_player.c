@@ -18,16 +18,13 @@ void	place_player(t_vars *vars)
 {
 	unsigned int	x;
 	unsigned int	y;
-	xpm_t			*sprite;
 
 	x = 0;
 	y = 0;
-	sprite = mlx_load_xpm42(PLAYER);
-	vars->screen = mlx_texture_to_image(vars->mlx, &sprite->texture);
 	while (vars->map_data.world_map[y])
 	{
 		if (vars->map_data.world_map[y][x] == 'P')
-			mlx_image_to_window(vars->mlx, vars->screen, x * 50, y * 50);
+			my_mlx_put_texture(vars->screen, &vars->texture.player->texture, x * 50, y * 50);
 		x++;
 		if (x >= vars->map_data.width)
 		{

@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/18 19:58:56 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/18 22:39:50 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/20 21:52:08 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,12 @@ void	place_background(t_vars *vars)
 {
 	unsigned int	x;
 	unsigned int	y;
-	xpm_t			*sprite;
 
 	x = 0;
 	y = 0;
-	sprite = mlx_load_xpm42(GRASS);
-	vars->screen = mlx_texture_to_image(vars->mlx, &sprite->texture);
 	while (vars->map_data.world_map[y])
 	{
-		mlx_image_to_window(vars->mlx, vars->screen, x * 50, y * 50);
+		mlx_draw_texture(vars->screen, &vars->texture.grass->texture, x * 50, y * 50);
 		x++;
 		if (x >= vars->map_data.width)
 		{

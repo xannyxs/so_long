@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/10 16:09:01 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/18 23:55:01 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/20 22:53:41 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define SUCCES 0
 # define ERROR 1
 
+#define UINT unsigned int
+
 typedef struct	s_node
 {
 	char			*data;
@@ -35,17 +37,25 @@ typedef struct	s_map
 	char			**world_map;
 }	t_map;
 
+typedef struct	s_textures
+{
+	xpm_t	*grass;
+	xpm_t	*cherry;
+	xpm_t	*exit;
+	xpm_t	*player;
+	xpm_t	*wall;
+}	t_textures;
+
 typedef struct	s_vars
 {
 	int				player_x;
 	int				player_y;
-	int				collectables;
 	int				enter_exit;
-	int				ping;
 	int				moves;
-	int				p_check;
+	char			last_tile;
 	mlx_t			*mlx;
 	mlx_image_t		*screen;
+	t_textures		texture;
 	t_map			map_data;
 }	t_vars;
 
@@ -132,5 +142,15 @@ int				ft_lstlen(t_node *head);
 void			*ft_malloc(size_t size);
 
 int				ft_open(char *cub_file);
+
+/*
+	MY_MLX
+*/
+
+UINT	my_mlx_color(mlx_texture_t *img, UINT x, UINT y);
+
+void	my_mlx_put_pixel(mlx_image_t *img, UINT x, UINT y, UINT color);
+
+void	my_mlx_put_texture(mlx_image_t *screen, mlx_texture_t *texture, int offset_x, int offset_y);
 
 #endif

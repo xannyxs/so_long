@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   place_cherry.c                                     :+:    :+:            */
+/*   my_mlx_colour.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/18 22:52:14 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/20 22:29:45 by xander        ########   odam.nl         */
+/*   Created: 2022/06/20 22:19:13 by xander        #+#    #+#                 */
+/*   Updated: 2022/06/20 22:21:02 by xander        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-#define CHERRY "IMG/XPM42/cherry.xpm42"
-
-void	place_cherry(t_vars *vars)
+UINT	my_mlx_color(mlx_texture_t *img, UINT x, UINT y)
 {
-	unsigned int	x;
-	unsigned int	y;
+	UINT	*pixel;
 
-	x = 0;
-	y = 0;
-	while (vars->map_data.world_map[y])
-	{
-		if (vars->map_data.world_map[y][x] == 'C')
-			my_mlx_put_texture(vars->screen, &vars->texture.cherry->texture, x * 50, y * 50);
-		x++;
-		if (x >= vars->map_data.width)
-		{
-			y++;
-			x = 0;
-		}
-	}
+	if (x >= img->width)
+		x = img->width - 1;
+	if (y >= img->height)
+		y = img->height - 1;
+	pixel = (UINT *)(img->pixels + (x + y * img->width) * sizeof(UINT));
+	return (*pixel);
 }
