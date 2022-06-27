@@ -6,38 +6,35 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/10 16:09:01 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/20 22:53:41 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/27 11:20:37 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include "MLX42/MLX42.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <unistd.h>
+# include <stddef.h>
 # include <stdbool.h>
 
 # define SUCCES 0
 # define ERROR 1
 
-#define UINT unsigned int
+# define UINT unsigned int
 
-typedef struct	s_node
+typedef struct s_node
 {
 	char			*data;
 	struct s_node	*next;
 }	t_node;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	unsigned int	width;
 	unsigned int	height;
 	char			**world_map;
 }	t_map;
 
-typedef struct	s_textures
+typedef struct s_textures
 {
 	xpm_t	*grass;
 	xpm_t	*cherry;
@@ -46,11 +43,11 @@ typedef struct	s_textures
 	xpm_t	*wall;
 }	t_textures;
 
-typedef struct	s_vars
+typedef struct s_vars
 {
 	int				player_x;
 	int				player_y;
-	int				enter_exit;
+	bool			enter_exit;
 	int				moves;
 	char			last_tile;
 	mlx_t			*mlx;
@@ -97,13 +94,13 @@ void			place_background(t_vars *vars);
 	MOVEMENT
 */
 
-void			to_left(t_vars *vars);
+void			to_left(t_vars *vars, char *world_map[]);
 
-void			to_right(t_vars *vars);
+void			to_right(t_vars *vars, char *world_map[]);
 
-void			to_up(t_vars *vars);
+void			to_up(t_vars *vars, char *world_map[]);
 
-void			to_down(t_vars *vars);
+void			to_down(t_vars *vars, char *world_map[]);
 
 /*
 	UTILS
@@ -121,7 +118,11 @@ int				check_valid_file(char *argv[]);
 
 void			find_player(t_vars *vars, char *world_map[]);
 
-//void			animation_player(t_vars *vars, t_img *sprite);
+bool			does_collect_exist(char *world_map[]);
+
+void			reset_image(mlx_image_t *img);
+
+void			print_movement(t_vars *vars);
 
 /*
 	LINKED LIST
@@ -147,10 +148,11 @@ int				ft_open(char *cub_file);
 	MY_MLX
 */
 
-UINT	my_mlx_color(mlx_texture_t *img, UINT x, UINT y);
+UINT			my_mlx_color(mlx_texture_t *img, UINT x, UINT y);
 
-void	my_mlx_put_pixel(mlx_image_t *img, UINT x, UINT y, UINT color);
+void			my_mlx_put_pixel(mlx_image_t *img, UINT x, UINT y, UINT color);
 
-void	my_mlx_put_texture(mlx_image_t *screen, mlx_texture_t *texture, int offset_x, int offset_y);
+void			my_mlx_put_texture(mlx_image_t *screen, \
+					mlx_texture_t *texture, int offset_x, int offset_y);
 
 #endif

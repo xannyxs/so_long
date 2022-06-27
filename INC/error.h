@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/18 17:53:50 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/18 18:30:46 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/27 11:12:31 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,5 @@
 void	non_fatal_error(char *msg);
 
 void	fatal_perror(char *msg);
-
-/*
-	List of mallocs:
-	1.
-	2.
-*/
 
 #endif

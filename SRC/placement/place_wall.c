@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/18 22:43:05 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/20 21:53:03 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/27 11:51:39 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	place_wall(t_vars *vars)
 	while (vars->map_data.world_map[y])
 	{
 		if (vars->map_data.world_map[y][x] == '1')
-			mlx_draw_texture(vars->screen, &vars->texture.wall->texture, x * 50, y * 50);
+			mlx_draw_texture(vars->screen, &vars->texture.wall->texture, \
+				x * 50, y * 50);
 		x++;
 		if (x >= vars->map_data.width)
 		{

@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/18 22:52:14 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/20 22:29:45 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/27 11:51:43 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	place_cherry(t_vars *vars)
 	while (vars->map_data.world_map[y])
 	{
 		if (vars->map_data.world_map[y][x] == 'C')
-			my_mlx_put_texture(vars->screen, &vars->texture.cherry->texture, x * 50, y * 50);
+			my_mlx_put_texture(vars->screen, &vars->texture.cherry->texture, \
+				x * 50, y * 50);
 		x++;
 		if (x >= vars->map_data.width)
 		{

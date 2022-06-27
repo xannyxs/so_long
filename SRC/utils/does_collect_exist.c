@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   place_player.c                                     :+:    :+:            */
+/*   does_collect_exist.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/01/24 21:41:03 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/06/27 11:52:03 by xvoorvaa      ########   odam.nl         */
+/*   Created: 2022/06/27 11:13:16 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2022/06/27 11:52:43 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-#define PLAYER "IMG/XPM42/player.xpm42"
+#include <stdbool.h>
 
-void	place_player(t_vars *vars)
+bool	does_collect_exist(char *world_map[])
 {
-	unsigned int	x;
-	unsigned int	y;
+	UINT	x;
+	UINT	y;
 
-	x = 0;
 	y = 0;
-	while (vars->map_data.world_map[y])
+	while (world_map[y])
 	{
-		if (vars->map_data.world_map[y][x] == 'P')
-			my_mlx_put_texture(vars->screen, &vars->texture.player->texture, \
-				x * 50, y * 50);
-		x++;
-		if (x >= vars->map_data.width)
+		x = 0;
+		while (world_map[y][x])
 		{
-			y++;
-			x = 0;
+			if (world_map[y][x] == 'C')
+				return (true);
+			x++;
 		}
+		y++;
 	}
+	return (false);
 }

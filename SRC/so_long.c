@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/13 14:54:29 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/20 23:05:11 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/27 11:49:54 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,46 +22,30 @@
 #define EXIT "IMG/XPM42/exit.xpm42"
 #define PLAYER "IMG/XPM42/player.xpm42"
 
-static bool	does_collect_exist(char *world_map[])
-{
-	UINT x;
-	UINT y;
-
-	y = 0;
-	while (world_map[y])
-	{
-		x = 0;
-		while (world_map[y][x])
-		{
-			if (world_map[y][x] == 'C')
-				return (true);
-			x++;
-		}
-		y++;
-	}
-	return (false);
-}
-
 /*
 	key_hook will track actions of the user.
-	Both WASD & ARROWS work to move the character.
+	Only WASD works to move the player.
 	ESC is to close the game.
 */
 void	key_hook(mlx_key_data_t keydata, void *param)
 {
-	t_vars *vars;
+	t_vars	*vars;
 
 	vars = param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		mlx_close_window(vars->mlx);
-	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
-		to_left(vars);
-	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
-		to_right(vars);
-	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
-		to_up(vars);
-	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
-		to_down(vars);
+	if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS || \
+		keydata.action == MLX_REPEAT))
+		to_left(vars, vars->map_data.world_map);
+	if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS || \
+		keydata.action == MLX_REPEAT))
+		to_right(vars, vars->map_data.world_map);
+	if (keydata.key == MLX_KEY_W && (keydata.action == MLX_PRESS || \
+		keydata.action == MLX_REPEAT))
+		to_up(vars, vars->map_data.world_map);
+	if (keydata.key == MLX_KEY_S && (keydata.action == MLX_PRESS || \
+		keydata.action == MLX_REPEAT))
+		to_down(vars, vars->map_data.world_map);
 	if (does_collect_exist(vars->map_data.world_map) == false)
 		vars->enter_exit = true;
 }
@@ -87,7 +71,8 @@ static void	set_values(t_vars *vars)
 static void	init_sys(t_vars *vars)
 {
 	set_values(vars);
-	vars->screen = mlx_new_image(vars->mlx, 1920, 1080);
+	vars->screen = mlx_new_image(vars->mlx, vars->map_data.width * 50, \
+		vars->map_data.height * 50);
 	if (!vars->screen)
 		fatal_perror("mlx");
 	mlx_image_to_window(vars->mlx, vars->screen, 0, 0);
@@ -104,7 +89,8 @@ int32_t	main(int argc, char *argv[])
 	}
 	if (is_ber_file_valid(argv[1], &vars) == false)
 		return (ERROR);
-	vars.mlx = mlx_init(vars.map_data.width * 50, vars.map_data.height * 50, "SO_LONG", false);
+	vars.mlx = mlx_init(vars.map_data.width * 50, \
+		vars.map_data.height * 50, "SO_LONG", true);
 	if (!vars.mlx)
 		fatal_perror("mlx");
 	init_sys(&vars);

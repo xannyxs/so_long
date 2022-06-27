@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/18 19:09:55 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/18 22:50:53 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/27 11:50:24 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,5 @@ int	check_map(t_map *map_data)
 		non_fatal_error(MISSING_MISCS);
 		return (ERROR);
 	}
-
 	return (SUCCES);
 }

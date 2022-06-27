@@ -6,13 +6,14 @@
 /*   By: xander <xander@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/20 22:24:44 by xander        #+#    #+#                 */
-/*   Updated: 2022/06/20 22:28:59 by xander        ########   odam.nl         */
+/*   Updated: 2022/06/27 11:50:45 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	my_mlx_put_texture(mlx_image_t *screen, mlx_texture_t *texture, int offset_x, int offset_y)
+void	my_mlx_put_texture(mlx_image_t *screen, mlx_texture_t *texture, \
+	int offset_x, int offset_y)
 {
 	int	x;
 	int	y;

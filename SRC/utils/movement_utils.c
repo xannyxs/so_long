@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   place_player.c                                     :+:    :+:            */
+/*   movement_utils.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: xvoorvaa <xvoorvaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/01/24 21:41:03 by xvoorvaa      #+#    #+#                 */
-/*   Updated: 2022/06/27 11:52:03 by xvoorvaa      ########   odam.nl         */
+/*   Created: 2022/06/27 11:18:15 by xvoorvaa      #+#    #+#                 */
+/*   Updated: 2022/06/27 11:52:49 by xvoorvaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "libft.h"
 
-#define PLAYER "IMG/XPM42/player.xpm42"
+#include <unistd.h>
 
-void	place_player(t_vars *vars)
+void	print_movement(t_vars *vars)
 {
-	unsigned int	x;
-	unsigned int	y;
+	vars->moves++;
+	write(STDOUT_FILENO, "MOVES: ", 7);
+	ft_putnbr_fd(vars->moves, STDOUT_FILENO);
+	write(STDOUT_FILENO, "\n", 1);
+}
 
-	x = 0;
-	y = 0;
-	while (vars->map_data.world_map[y])
-	{
-		if (vars->map_data.world_map[y][x] == 'P')
-			my_mlx_put_texture(vars->screen, &vars->texture.player->texture, \
-				x * 50, y * 50);
-		x++;
-		if (x >= vars->map_data.width)
-		{
-			y++;
-			x = 0;
-		}
-	}
+void	reset_image(mlx_image_t *img)
+{
+	ft_memset(img->pixels, 0, img->width * img->height * sizeof(int));
 }
