@@ -16,10 +16,10 @@ CFLAGS			=	-Wall -Wextra -Werror
 OBJ_DIR			=	OBJ
 SRC_DIR			=	SRC
 INC_DIR			=	INC
-MLX_DIR			=	./MLX42
+MLX_DIR			=	./lib/MLX42
 MLX_H			=	$(MLX_DIR)/include/
 MLX_A			=	$(MLX_DIR)/libmlx42.a
-LIBFT_DIR		=	./libft
+LIBFT_DIR		=	./lib/libft
 LIBFT_H			=	$(LIBFT_DIR)/INC
 LIBFT_A			=	$(LIBFT_DIR)/libft.a
 
